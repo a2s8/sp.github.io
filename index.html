@@ -11,8 +11,9 @@
             --card-glass: rgba(30, 41, 59, 0.7);
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --avik-accent: #38bdf8; /* Cyan/Blue */
+            --avik-accent: #38bdf8; /* Blue */
             --rama-accent: #a855f7; /* Purple */
+            --private-accent: #fbbf24; /* Gold */
         }
 
         body {
@@ -27,14 +28,15 @@
             justify-content: center;
             overflow-x: hidden;
             position: relative;
+            padding: 40px 20px;
         }
 
-        /* Ambient Background Animation */
+        /* Ambient Background */
         .ambient-light {
             position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(168, 85, 247, 0.05) 50%, transparent 70%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, rgba(168, 85, 247, 0.05) 40%, transparent 70%);
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -44,18 +46,17 @@
 
         @keyframes pulse {
             0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
-            100% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
         }
 
-        /* Header / Hero */
         header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
             z-index: 1;
         }
 
         h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 800;
             letter-spacing: -2px;
             margin: 0;
@@ -64,98 +65,98 @@
             -webkit-text-fill-color: transparent;
         }
 
-        p.subtitle {
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            margin-top: 10px;
-        }
+        p.subtitle { color: var(--text-muted); font-size: 1.1rem; margin-top: 10px; }
 
-        /* Card Grid */
+        /* 2x2 Grid Layout */
         .portal-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            max-width: 1000px;
-            width: 90%;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            width: 100%;
             z-index: 1;
         }
 
-        /* Individual Cards */
+        /* Card Styles */
         .card {
             background: var(--card-glass);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 24px;
-            padding: 40px;
+            padding: 35px;
             text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            position: relative;
+            overflow: hidden;
         }
 
         .card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(255, 255, 255, 0.3);
-            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.4);
         }
 
-        /* Specific Card Styling */
-        .card-avik:hover { border-top: 4px solid var(--avik-accent); }
-        .card-rama:hover { border-top: 4px solid var(--rama-accent); }
-
-        .card h2 {
-            color: var(--text-main);
-            font-size: 2rem;
-            margin: 20px 0 10px 0;
-        }
+        /* Accents */
+        .card-avik:hover { border-top: 3px solid var(--avik-accent); }
+        .card-rama:hover { border-top: 3px solid var(--rama-accent); }
+        .card-private:hover { border-top: 3px solid var(--private-accent); }
 
         .role-badge {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             font-weight: 800;
-            padding: 6px 12px;
+            padding: 5px 10px;
             border-radius: 20px;
             display: inline-block;
+            margin-bottom: 15px;
         }
 
-        .badge-avik { background: rgba(56, 189, 248, 0.2); color: var(--avik-accent); }
-        .badge-rama { background: rgba(168, 85, 247, 0.2); color: var(--rama-accent); }
+        .badge-avik { background: rgba(56, 189, 248, 0.15); color: var(--avik-accent); }
+        .badge-rama { background: rgba(168, 85, 247, 0.15); color: var(--rama-accent); }
+        .badge-private { background: rgba(251, 191, 36, 0.15); color: var(--private-accent); }
+
+        .card h2 {
+            color: var(--text-main);
+            font-size: 1.8rem;
+            margin: 0 0 10px 0;
+        }
 
         .card p {
             color: var(--text-muted);
-            line-height: 1.6;
-            margin-bottom: 30px;
+            line-height: 1.5;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
         }
 
         .arrow-link {
             margin-top: auto;
             font-weight: 600;
+            font-size: 0.9rem;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             transition: gap 0.2s;
         }
 
         .card-avik .arrow-link { color: var(--avik-accent); }
         .card-rama .arrow-link { color: var(--rama-accent); }
+        .card-private .arrow-link { color: var(--private-accent); }
 
-        .card:hover .arrow-link { gap: 12px; }
+        .card:hover .arrow-link { gap: 10px; }
 
-        /* Footer */
         footer {
-            margin-top: 80px;
+            margin-top: 60px;
             color: rgba(255, 255, 255, 0.2);
-            font-size: 0.9rem;
-            z-index: 1;
+            font-size: 0.85rem;
+            text-align: center;
         }
 
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
+        @media (max-width: 650px) {
             h1 { font-size: 2.5rem; }
             .portal-grid { grid-template-columns: 1fr; }
         }
@@ -175,21 +176,29 @@
         <a href="/a" class="card card-avik">
             <span class="role-badge badge-avik">The Creator</span>
             <h2>Avik S.</h2>
-            <p>
-                Professional Noise Maker, Content Creator, and Level 8 Human. 
-                Check out the latest Reels, videos, and snack reviews.
-            </p>
-            <span class="arrow-link">Visit Space &rarr;</span>
+            <p>Level 8 Human, Professional Noise Maker, and Reel Creator.</p>
+            <span class="arrow-link">View Space &rarr;</span>
         </a>
 
         <a href="/r" class="card card-rama">
             <span class="role-badge badge-rama">The Architect</span>
             <h2>Rama S.</h2>
-            <p>
-                Cloud Security Architect, DevOps Engineer, and Tech Enthusiast. 
-                Explore professional projects, editing portfolio, and IT insights.
-            </p>
+            <p>Cloud Security Architect, DevOps Engineer, and Tech Enthusiast.</p>
             <span class="arrow-link">Enter Portfolio &rarr;</span>
+        </a>
+
+        <a href="/s" class="card card-private">
+            <span class="role-badge badge-private">Private &bull; S</span>
+            <h2>Profile S.</h2>
+            <p>This profile is private. Inquiries only.</p>
+            <span class="arrow-link">Restricted Access 🔒</span>
+        </a>
+
+        <a href="/j" class="card card-private">
+            <span class="role-badge badge-private">Private &bull; J</span>
+            <h2>Profile J.</h2>
+            <p>This profile is private. Inquiries only.</p>
+            <span class="arrow-link">Restricted Access 🔒</span>
         </a>
 
     </div>

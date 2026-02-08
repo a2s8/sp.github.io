@@ -1,1 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sripathi Family</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --accent-blue: #38bdf8;
+            --accent-purple: #a855f7;
+            --text: #f8fafc;
+        }
 
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .hub-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 900px;
+            padding: 20px;
+        }
+
+        .portal-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 24px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Hover Effects */
+        .portal-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-color);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        .avik-card { --accent-color: var(--accent-blue); }
+        .rama-card { --accent-color: var(--accent-purple); }
+
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin: 0;
+            letter-spacing: -1px;
+        }
+
+        p {
+            opacity: 0.7;
+            margin-top: 10px;
+            font-size: 0.95rem;
+        }
+
+        .btn {
+            margin-top: 25px;
+            padding: 12px 24px;
+            border-radius: 12px;
+            background: var(--accent-color);
+            color: var(--bg);
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        @media (max-width: 640px) {
+            .hub-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hub-container">
+        <a href="/a" class="portal-card avik-card">
+            <div class="icon">🎮</div>
+            <h2>Avik S.</h2>
+            <p>Content Creator, Professional Noise Maker, & Level 8 Human.</p>
+            <div class="btn">View Space</div>
+        </a>
+
+        <a href="https://r2k8.com" class="portal-card rama-card">
+            <div class="icon">☁️</div>
+            <h2>Rama S.</h2>
+            <p>Cloud Security Architect, DevOps Engineer, & Tech Portfolio.</p>
+            <div class="btn">Visit Site</div>
+        </a>
+    </div>
+
+</body>
+</html>

@@ -3,110 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Sripathi Family</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <title>The Sripathi Family | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0f172a;
-            --card-bg: #1e293b;
-            --accent-blue: #38bdf8;
-            --accent-purple: #a855f7;
-            --text: #f8fafc;
+            --bg-dark: #0f172a;
+            --card-glass: rgba(30, 41, 59, 0.7);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --avik-accent: #38bdf8; /* Cyan/Blue */
+            --rama-accent: #a855f7; /* Purple */
         }
 
         body {
-            background-color: var(--bg);
-            color: var(--text);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
             font-family: 'Inter', sans-serif;
             margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             min-height: 100vh;
-        }
-
-        .hub-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            width: 100%;
-            max-width: 900px;
-            padding: 20px;
-        }
-
-        .portal-card {
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 24px;
-            text-align: center;
-            text-decoration: none;
-            color: var(--text);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             flex-direction: column;
+            align-items: center;
             justify-content: center;
+            overflow-x: hidden;
+            position: relative;
         }
 
-        /* Hover Effects */
-        .portal-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent-color);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        /* Ambient Background Animation */
+        .ambient-light {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(168, 85, 247, 0.05) 50%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            animation: pulse 10s infinite alternate;
         }
 
-        .avik-card { --accent-color: var(--accent-blue); }
-        .rama-card { --accent-color: var(--accent-purple); }
-
-        .icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
+        @keyframes pulse {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+            100% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
         }
 
-        h2 {
-            font-size: 2rem;
+        /* Header / Hero */
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -2px;
             margin: 0;
-            letter-spacing: -1px;
+            background: linear-gradient(to right, #fff, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        p {
-            opacity: 0.7;
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 1.2rem;
             margin-top: 10px;
-            font-size: 0.95rem;
         }
 
-        .btn {
-            margin-top: 25px;
-            padding: 12px 24px;
-            border-radius: 12px;
-            background: var(--accent-color);
-            color: var(--bg);
-            font-weight: bold;
+        /* Card Grid */
+        .portal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            width: 90%;
+            z-index: 1;
+        }
+
+        /* Individual Cards */
+        .card {
+            background: var(--card-glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Specific Card Styling */
+        .card-avik:hover { border-top: 4px solid var(--avik-accent); }
+        .card-rama:hover { border-top: 4px solid var(--rama-accent); }
+
+        .card h2 {
+            color: var(--text-main);
+            font-size: 2rem;
+            margin: 20px 0 10px 0;
+        }
+
+        .role-badge {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 800;
+            padding: 6px 12px;
+            border-radius: 20px;
             display: inline-block;
         }
 
-        @media (max-width: 640px) {
-            .hub-container { grid-template-columns: 1fr; }
+        .badge-avik { background: rgba(56, 189, 248, 0.2); color: var(--avik-accent); }
+        .badge-rama { background: rgba(168, 85, 247, 0.2); color: var(--rama-accent); }
+
+        .card p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .arrow-link {
+            margin-top: auto;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.2s;
+        }
+
+        .card-avik .arrow-link { color: var(--avik-accent); }
+        .card-rama .arrow-link { color: var(--rama-accent); }
+
+        .card:hover .arrow-link { gap: 12px; }
+
+        /* Footer */
+        footer {
+            margin-top: 80px;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            z-index: 1;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .portal-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <div class="hub-container">
-        <a href="/a" class="portal-card avik-card">
-            <div class="icon">🎮</div>
+    <div class="ambient-light"></div>
+
+    <header>
+        <h1>sripathi.one</h1>
+        <p class="subtitle">The Family Portal</p>
+    </header>
+
+    <div class="portal-grid">
+        
+        <a href="/a" class="card card-avik">
+            <span class="role-badge badge-avik">The Creator</span>
             <h2>Avik S.</h2>
-            <p>Content Creator, Professional Noise Maker, & Level 8 Human.</p>
-            <div class="btn">View Space</div>
+            <p>
+                Professional Noise Maker, Content Creator, and Level 8 Human. 
+                Check out the latest Reels, videos, and snack reviews.
+            </p>
+            <span class="arrow-link">Visit Space &rarr;</span>
         </a>
 
-        <a href="https://r2k8.com" class="portal-card rama-card">
-            <div class="icon">☁️</div>
+        <a href="/r" class="card card-rama">
+            <span class="role-badge badge-rama">The Architect</span>
             <h2>Rama S.</h2>
-            <p>Cloud Security Architect, DevOps Engineer, & Tech Portfolio.</p>
-            <div class="btn">Visit Site</div>
+            <p>
+                Cloud Security Architect, DevOps Engineer, and Tech Enthusiast. 
+                Explore professional projects, editing portfolio, and IT insights.
+            </p>
+            <span class="arrow-link">Enter Portfolio &rarr;</span>
         </a>
+
     </div>
+
+    <footer>
+        &copy; 2026 Sripathi Family
+    </footer>
 
 </body>
 </html>

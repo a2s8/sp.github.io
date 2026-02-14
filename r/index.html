@@ -3,59 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S. | Technical Solutions Architect</title>
+    <title>Rama S. | Techy & Editor</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #0f172a;
-            --card-bg: #1e293b;
-            --text-main: #f8fafc;
+            --bg-dark: #0a0a0c;
+            --card-bg: #111113;
+            --text-main: #ffffff;
             --text-muted: #94a3b8;
-            --accent-gold: #fbbf24; /* Premium Gold */
-            --accent-glass: rgba(251, 191, 36, 0.15);
+            --accent-purple: #a855f7; /* Techy Purple */
+            --accent-glass: rgba(168, 85, 247, 0.15);
         }
 
         body {
             background-color: var(--bg-dark);
             color: var(--text-main);
             font-family: 'Inter', sans-serif;
+            margin: 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            margin: 0;
             padding: 20px;
-            background-image: radial-gradient(circle at 50% 0%, rgba(251, 191, 36, 0.05), transparent 60%);
+            /* Subtle mesh gradient */
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(168, 85, 247, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(56, 189, 248, 0.05) 0px, transparent 50%);
         }
 
-        .profile-card {
+        .profile-container {
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
             background: var(--card-bg);
             padding: 60px 40px;
-            border-radius: 24px;
-            text-align: center;
-            max-width: 450px;
-            width: 100%;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+            border-radius: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.8);
             position: relative;
-            overflow: hidden;
-            margin-bottom: 20px;
-        }
-
-        .profile-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--accent-gold);
         }
 
         .badge {
             background: var(--accent-glass);
-            color: var(--accent-gold);
+            color: var(--accent-purple);
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -64,56 +55,65 @@
             border-radius: 50px;
             display: inline-block;
             margin-bottom: 25px;
-            border: 1px solid rgba(251, 191, 36, 0.2);
+            border: 1px solid rgba(168, 85, 247, 0.2);
         }
 
         h1 {
             font-size: 3rem;
-            font-weight: 700;
-            margin: 0 0 10px 0;
-            letter-spacing: -1px;
-            background: linear-gradient(to right, #fff, #cbd5e1);
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -2px;
+            background: linear-gradient(to bottom, #fff, #94a3b8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .roles {
-            color: var(--text-main);
+            color: var(--accent-purple);
+            font-weight: 600;
             font-size: 1.1rem;
-            font-weight: 500;
-            margin-bottom: 20px;
-            line-height: 1.5;
+            margin: 15px 0 25px;
         }
 
-        .roles span { display: inline-block; }
-        .divider { color: var(--accent-gold); margin: 0 8px; opacity: 0.6; }
-
-        p.description {
+        .description {
             color: var(--text-muted);
             line-height: 1.6;
+            font-size: 1rem;
+            margin-bottom: 35px;
+        }
+
+        /* Skills Tags */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
             margin-bottom: 40px;
-            font-size: 0.95rem;
-            max-width: 90%;
-            margin-left: auto;
-            margin-right: auto;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 6px 14px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
         }
 
         .btn {
-            background-color: var(--accent-gold);
-            color: #1e293b;
+            background: var(--text-main);
+            color: var(--bg-dark);
             text-decoration: none;
-            padding: 16px 32px;
-            border-radius: 50px;
+            padding: 16px 35px;
+            border-radius: 16px;
             font-weight: 700;
             display: inline-block;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(251, 191, 36, 0.4);
-            background-color: #fcd34d;
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
         }
 
         .home-link {
@@ -122,51 +122,57 @@
             color: var(--text-muted);
             text-decoration: none;
             font-size: 0.85rem;
-            opacity: 0.6;
-            transition: opacity 0.2s;
+            opacity: 0.5;
         }
         
-        .home-link:hover { opacity: 1; color: var(--text-main); }
+        .home-link:hover { opacity: 1; }
+
+        /* Visit Counter Styling */
+        .counter-container {
+            margin-top: 30px;
+            opacity: 0.6;
+        }
     </style>
 </head>
 <body>
 
-    <div class="profile-card">
+    <div class="profile-container">
         <div class="badge">The Techy</div>
         
-        <h1>S.</h1> 
-
-        <div class="roles">
-            Technical Solutions Architect
-            <span class="divider">•</span> 
-            TPM 
-            <span class="divider">•</span> 
-            PdM
-        </div>
-
+        <h1>Rama S.</h1>
+        <div class="roles">Architect • TPM • PdM</div>
+        
         <p class="description">
-            Specializing in technical program management and product strategy. 
-            This portfolio is currently private. Please request access below.
+            Building secure infrastructure by day, crafting cinematic stories by night. 
+            Technical Solutions Architect specializing in Cloud Security and DevOps.
         </p>
 
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdH4Z9-Zs-Q8f4H8b4y4jxnlN4RqMp0HZYC0zVCxPoXjc10Lg/viewform" class="btn" target="_blank">Request Access / Contact</a>
+        <div class="skills">
+            <span class="skill-tag">Final Cut Pro</span>
+            <span class="skill-tag">Cloud Security</span>
+            <span class="skill-tag">DevOps</span>
+            <span class="skill-tag">Tech Enthusiast</span>
+        </div>
 
-        <a href="/" class="home-link">&larr; Return to Family Portal</a>
+        <div class="links">
+            <a href="https://r2k8.com" class="btn" target="_blank">View Portfolio</a>
+        </div>
+
+        <a href="/" class="home-link">&larr; Back to sripathi.one</a>
     </div>
 
-    <div style="margin-top: 10px; opacity: 0.6;">
+    <div class="counter-container">
         <img id="visit-count" src="" alt="Page Views" style="height: 20px;">
     </div>
 
     <script>
-        // 1. Get current page ID
+        // Automatic Path Detection
         var pageId = window.location.hostname + window.location.pathname;
         pageId = pageId.toLowerCase().replace(/\/$/, "");
         
-        // 2. Set color to GOLD (fbbf24) to match the page theme
-        var counterUrl = "https://hits.sh/" + pageId + ".svg?style=flat-square&label=Views&extraCount=0&color=fbbf24";
+        // Purple Theme Counter (matches accent)
+        var counterUrl = "https://hits.sh/" + pageId + ".svg?style=flat-square&label=Views&extraCount=0&color=a855f7";
         
-        // 3. Update image
         document.getElementById("visit-count").src = counterUrl;
     </script>
 

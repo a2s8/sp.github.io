@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Private Profile | S</title>
+    <title>Private Profile</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -50,17 +50,8 @@
         h1 {
             font-size: 2rem;
             font-weight: 300;
-            margin: 0 0 10px 0;
+            margin: 0 0 15px 0;
             letter-spacing: 2px;
-        }
-
-        .role-title {
-            color: var(--accent-gold);
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
         }
 
         p {
@@ -107,8 +98,6 @@
         
         <h1>Profile S</h1> 
 
-        <div class="role-title">Solutions Architect • TPM • PdM</div>
-
         <p>
             This profile is private. <br>
             Please use the form below to send an inquiry or request access.
@@ -118,15 +107,15 @@
 
         <a href="/" class="home-link">&larr; Return to Family Portal</a>
 
-        <div style="margin-top: 30px; opacity: 0.5;">
-            <img id="visit-count" src="" alt="Views" style="height: 18px;">
+        <div style="margin-top: 30px; opacity: 0.3;">
+            <img id="visit-count" src="" alt="" style="height: 16px;">
         </div>
     </div>
 
     <script>
         var pageId = window.location.hostname + window.location.pathname;
         pageId = pageId.toLowerCase().replace(/\/$/, "");
-        var counterUrl = "https://hits.sh/" + pageId + ".svg?style=flat-square&label=Views&extraCount=0&color=fbbf24";
+        var counterUrl = "https://hits.sh/" + pageId + ".svg?style=flat-square&label=Views&extraCount=0&color=334155";
         document.getElementById("visit-count").src = counterUrl;
     </script>
 
